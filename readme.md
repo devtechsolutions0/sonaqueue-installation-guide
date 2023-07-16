@@ -29,6 +29,14 @@ sudo apt install -y openjdk-11-jdk
 
 ## 3. Install and Configure PostgreSQL
 
+* Increase virtual memory.
+```bash
+sudo sysctl -w vm.max_map_count=524288
+sudo sysctl -w fs.file-max=131072
+ulimit -n 131072
+ulimit -u 8192
+```
+
 * Add PostgreSQL repository.
 ```bash
 sudo sh -c 'echo "deb http://apt.postgresql.org/pub/repos/apt/ `lsb_release -cs`-pgdg main" >> /etc/apt/sources.list.d/pgdg.list'
